@@ -1,0 +1,23 @@
+# kan's .screenrc
+
+escape ^Ta
+vbell off
+autodetach on
+
+defhstatus screen@$HOSTNAME
+msgminwait 0
+
+# hardstatus
+termcapinfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+termcapinfo kterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+
+termcapinfo xterm* LP:hs
+termcapinfo kterm* LP:G0:hs
+
+startup_message off
+markkeys h=^B:l=^F:$=^E:^U=^Z:^D=^V
+#caption always "%{= wg} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d(%D) %{=b wm}%c"
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+defutf8 on
+
