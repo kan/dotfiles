@@ -44,6 +44,30 @@ else
     RPROMPT=$'%{\e[33m%}[%d] %D %T%{\e[m%}'
 fi
 
+_set_env_git_current_branch() {
+  GIT_CURRENT_BRANCH=$( git branch &> /dev/null | grep '^\*' | cut -b 3- )
+}
+
+_update_rprompt () {
+  if [ "`git ls-files 2>/dev/null`" ]; then
+    RPROMPT=$'%{\e[33m%}[%~:$GIT_CURRENT_BRANCH] %D %T%{\e[m%}'
+  else
+    RPROMPT=$'%{\e[33m%}[%~] %D %T%{\e[m%}'
+  fi
+} 
+  
+precmd() 
+{ 
+  _set_env_git_current_branch
+  _update_rprompt
+}
+
+chpwd()
+{
+  _set_env_git_current_branch
+  _update_rprompt
+}
+
 alias   lv='w3m'
 alias   less='w3m'
 export  EDITOR=vim

@@ -19,9 +19,8 @@ untracked = cyan
 ui = true
 [core]
 whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /home/kan/.gitignore
-	editor = vim
-	pager = w3m
+excludesfile = /home/kan/.gitignore
+editor = vim
 [branch]
 autosetupmerge = true
 [alias]
@@ -31,4 +30,5 @@ br = branch
 co = checkout
 df = diff
 lg = log -p
+url = onfig --get remote.origin.url
 
