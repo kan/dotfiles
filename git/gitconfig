@@ -16,7 +16,7 @@ added = yellow
 changed = green
 untracked = cyan
 [color]
-ui = true
+ui = auto
 [core]
 whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 excludesfile = /home/kan/.gitignore
