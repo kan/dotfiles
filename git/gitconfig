@@ -30,5 +30,5 @@ br = branch
 co = checkout
 df = diff
 lg = log -p
-url = onfig --get remote.origin.url
+url = config --get remote.origin.url
 
