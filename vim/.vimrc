@@ -2,7 +2,8 @@
 
 set nocompatible " must be first!
 
-colorscheme darkblue
+set t_Co=256
+colorscheme tir_black
 nnoremap j gj
 nnoremap k gk
 set expandtab

@@ -7,8 +7,12 @@ autodetach on
 defhstatus screen@$HOSTNAME
 msgminwait 0
 
+defbce "on"
+term xterm-256color
+
 # hardstatus
-termcapinfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 termcapinfo kterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
 
 termcapinfo xterm* LP:hs

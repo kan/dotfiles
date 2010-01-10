@@ -25,7 +25,7 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 alias ls='\ls --color'
-alias s='ls'
+alias s='screen'
 alias l='ls'
 alias sl='ls'
 alias la='ls -a'
