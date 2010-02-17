@@ -21,11 +21,12 @@ ui = auto
 whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 excludesfile = /home/kan/.gitignore
 editor = vim
+pager = lv -c
 [branch]
 autosetupmerge = true
 [alias]
 st = status
-ci = commit -a
+ci = commit
 br = branch
 co = checkout
 df = diff
