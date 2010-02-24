@@ -33,3 +33,6 @@ df = diff
 lg = log -p
 url = config --get remote.origin.url
 
+[user]
+	name = Kan Fushihara
+	email = kan.fushihara@gmail.com
