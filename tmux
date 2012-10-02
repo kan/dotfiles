@@ -24,9 +24,6 @@ bind | split-window -h
 unbind -
 bind - split-window -v
 
-unbind Tab
-bind Tab down-pane
-
 set-option -g history-limit 10000
 set-option -g status-utf8 on
 set-option -g status-interval 5
@@ -51,4 +48,3 @@ set-window-option -g window-status-current-attr bold
 
 set-window-option -g mode-key vi
 source-file ~/.tmux.conf.local
-#set-option -g default-terminal xterm-256color
