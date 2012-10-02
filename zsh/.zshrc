@@ -43,7 +43,7 @@ if [ "$TERM" = "dumb" ] ; then
     PROMPT='%h %n@%m[%d] %# '
     RPROMPT='%D %T'
 else
-    PROMPT=" %{${fg[green]}%}->  %{${fg[cyan]}%}%1~ %{${reset_color}%}"
+    PROMPT=" %(?.%{${fg[green]}%}.%{${fg[red]}%})->  %{${fg[cyan]}%}%1~ %{${reset_color}%}"
 fi
 
 _set_env_git_current_branch() {
@@ -52,9 +52,9 @@ _set_env_git_current_branch() {
 
 _update_prompt () {
   if [ "`git ls-files 2>/dev/null`" ]; then
-    PROMPT=" %{${fg[green]}%}-> %{${fg[cyan]}%}%1~ %{${fg[blue]}%}git:(%{${fg[yellow]}%}$GIT_CURRENT_BRANCH%{${fg[blue]}%}) %{${reset_color}%}"
+    PROMPT=" %(?.%{${fg[green]}%}.%{${fg[red]}%})-> %{${fg[cyan]}%}%1~ %{${fg[blue]}%}git:(%{${fg[yellow]}%}$GIT_CURRENT_BRANCH%{${fg[blue]}%}) %{${reset_color}%}"
   else
-    PROMPT=" %{${fg[green]}%}-> %{${fg[cyan]}%}%1~ %{${reset_color}%}"
+    PROMPT=" %(?.%{${fg[green]}%}.%{${fg[red]}%})-> %{${fg[cyan]}%}%1~ %{${reset_color}%}"
   fi
 } 
   
@@ -78,3 +78,6 @@ alias   vi=vim
 autoload bashcompinit
 bashcompinit
 source ~/project/dotfiles/zsh/git-comp.bash
+if [ -e ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
