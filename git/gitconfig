@@ -19,7 +19,7 @@ untracked = cyan
 ui = auto
 [core]
 whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-excludesfile = /home/kan/.gitignore
+excludesfile = ~/.gitignore
 editor = vim
 pager = lv -c
 [branch]
