@@ -6,4 +6,5 @@ ln -s ~/project/dotfiles/screen/.screenrc ~/.screenrc
 ln -s ~/project/dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/project/dotfiles/git/gitignore ~/.gitignore
 ln -s ~/project/dotfiles/dir_colors ~/.dir_colors
+ln -s ~/project/dotfiles/tmux ~/.tmux.conf
 
