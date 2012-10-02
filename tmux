@@ -27,7 +27,6 @@ bind - split-window -v
 set-option -g history-limit 10000
 set-option -g status-utf8 on
 set-option -g status-interval 5
-set-window-option -g mode-mouse on
 
 set-option -g set-titles on
 set-option -g set-titles-string "@#(hostname | sed 's/\\\\..*//')"
