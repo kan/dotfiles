@@ -8,7 +8,7 @@ HISTFILE=$HOME/.zsh-history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt extended_history
-SHELL=/usr/bin/zsh
+SHELL=/bin/zsh
 
 autoload -U compinit
 compinit
@@ -36,36 +36,38 @@ if [ -e '/usr/local/bin/gls' ]; then
 fi
 
 setopt prompt_subst
+autoload -Uz colors
+colors
+
 if [ "$TERM" = "dumb" ] ; then
     PROMPT='%h %n@%m[%d] %# '
     RPROMPT='%D %T'
 else
-    PROMPT=$'%{\e[34m%}%U%B$HOST'"{`whoami`}%b%%%u "
-    RPROMPT=$'%{\e[33m%}[%d] %D %T%{\e[m%}'
+    PROMPT=" %{${fg[green]}%}->  %{${fg[cyan]}%}%1~ %{${reset_color}%}"
 fi
 
 _set_env_git_current_branch() {
   GIT_CURRENT_BRANCH=$( git branch &> /dev/null | grep '^\*' | cut -b 3- )
 }
 
-_update_rprompt () {
+_update_prompt () {
   if [ "`git ls-files 2>/dev/null`" ]; then
-    RPROMPT=$'%{\e[33m%}[%~:$GIT_CURRENT_BRANCH] %D %T%{\e[m%}'
+    PROMPT=" %{${fg[green]}%}-> %{${fg[cyan]}%}%1~ %{${fg[blue]}%}git:(%{${fg[yellow]}%}$GIT_CURRENT_BRANCH%{${fg[blue]}%}) %{${reset_color}%}"
   else
-    RPROMPT=$'%{\e[33m%}[%~] %D %T%{\e[m%}'
+    PROMPT=" %{${fg[green]}%}-> %{${fg[cyan]}%}%1~ %{${reset_color}%}"
   fi
 } 
   
 precmd() 
 { 
   _set_env_git_current_branch
-  _update_rprompt
+  _update_prompt
 }
 
 chpwd()
 {
   _set_env_git_current_branch
-  _update_rprompt
+  _update_prompt
 }
 
 alias   lv='w3m'
@@ -73,3 +75,6 @@ alias   less='w3m'
 export  EDITOR=vim
 alias   vi=vim
 
+autoload bashcompinit
+bashcompinit
+source ~/project/dotfiles/zsh/git-comp.bash
