@@ -91,3 +91,20 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 map ,pt <Esc>:%! perltidy<CR>
 map ,ptv <Esc>:'<,'>! perltidy<CR>
 
+autocmd BufNewFile,BufRead *.psgi   set filetype=perl
+autocmd BufNewFile,BufRead *.t      set filetype=perl
+
+nmap <Leader>r <plug>(quickrun)
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+Bundle 'hotchpotch/perldoc-vim'
+Bundle 'c9s/perlomni.vim'
+Bundle 'thinca/vim-quickrun'
+
+filetype plugin indent on
