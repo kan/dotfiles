@@ -93,6 +93,7 @@ map ,ptv <Esc>:'<,'>! perltidy<CR>
 
 autocmd BufNewFile,BufRead *.psgi   set filetype=perl
 autocmd BufNewFile,BufRead *.t      set filetype=perl
+autocmd BufNewFile,BufRead *.sbt set filetype=scala
 
 nmap <Leader>r <plug>(quickrun)
 
