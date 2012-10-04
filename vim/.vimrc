@@ -107,5 +107,6 @@ Bundle 'gmarik/vundle'
 Bundle 'hotchpotch/perldoc-vim'
 Bundle 'c9s/perlomni.vim'
 Bundle 'thinca/vim-quickrun'
+Bundle 'mattn/zencoding-vim'
 
 filetype plugin indent on
