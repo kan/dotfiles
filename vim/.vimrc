@@ -94,6 +94,51 @@ map ,ptv <Esc>:'<,'>! perltidy<CR>
 autocmd BufNewFile,BufRead *.psgi   set filetype=perl
 autocmd BufNewFile,BufRead *.t      set filetype=perl
 autocmd BufNewFile,BufRead *.sbt set filetype=scala
+autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl-script.txt
+autocmd BufNewFile *.t  0r $HOME/.vim/template/perl-test.txt
+
+function! s:pm_template()
+    set noautochdir
+    let path = substitute(expand('%:p'), '.*lib/', '', 'g')
+    let path = substitute(path, '[\\/]', '::', 'g')
+    let path = substitute(path, '\.pm$', '', 'g')
+
+    call append(0, 'package ' . path . ';')
+    call append(1, 'use Mouse;')
+    call append(2, '')
+    call append(3, '')
+    call append(4, 'no Mouse;')
+    call append(5, '__PACKAGE__->meta->make_immutable;')
+    call append(6, '')
+    call append(7, '1;')
+    call cursor(3, 0)
+    " echomsg path
+    set autochdir
+endfunction
+autocmd BufNewFile *.pm call s:pm_template()
+
+function! s:get_package_name()
+    let mx = '^\s*package\s\+\([^ ;]\+\)'
+    for line in getline(1, 5)
+        if line =~ mx
+        return substitute(matchstr(line, mx), mx, '\1', '')
+        endif
+    endfor
+    return ""
+endfunction
+
+function! s:check_package_name()
+    let path = substitute(expand('%:p'), '\\', '/', 'g')
+    let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
+    if path[-len(name):] != name
+        echohl WarningMsg
+        echomsg "ぱっけーじめいと、ほぞんされているぱすが、ちがうきがします!"
+        echomsg "ちゃんとなおしてください><"
+        echohl None
+    endif
+endfunction
+
+au! BufWritePost *.pm call s:check_package_name()
 
 nmap <Leader>r <plug>(quickrun)
 
@@ -108,5 +153,6 @@ Bundle 'hotchpotch/perldoc-vim'
 Bundle 'c9s/perlomni.vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'mattn/zencoding-vim'
+Bundle 'vim-perl/vim-perl'
 
 filetype plugin indent on
