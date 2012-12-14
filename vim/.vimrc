@@ -154,5 +154,6 @@ Bundle 'c9s/perlomni.vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-perl/vim-perl'
+Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on
