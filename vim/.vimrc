@@ -3,7 +3,7 @@
 set nocompatible " must be first!
 
 set t_Co=256
-"colorscheme tir_black
+colorscheme smyck
 nnoremap j gj
 nnoremap k gk
 set expandtab
@@ -155,10 +155,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-perl/vim-perl'
 Bundle 'mileszs/ack.vim'
-Bundle 'altercation/vim-colors-solarized'
 
 let g:user_zen_expandabbr_key = '<c-e>'
-set background=dark
-colorscheme solarized
 
 filetype plugin indent on
