@@ -155,5 +155,8 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-perl/vim-perl'
 Bundle 'mileszs/ack.vim'
+Bundle 'nanotech/jellybeans.vim'
+
+let g:user_zen_expandabbr_key = '<c-e>'
 
 filetype plugin indent on
