@@ -31,6 +31,10 @@ autocmd CursorHold * update
 set updatetime=500
 set autochdir
 
+if $GOROOT != ''
+    set rtp+=$GOROOT/misc/vim
+end
+
 " http://www.kawaz.jp/pukiwiki/?vim#content_1_5
 
 if &encoding !=# 'utf-8'
@@ -97,6 +101,8 @@ autocmd BufNewFile,BufRead *.sbt set filetype=scala
 autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl-script.txt
 autocmd BufNewFile *.t  0r $HOME/.vim/template/perl-test.txt
 
+autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 function! s:pm_template()
     set noautochdir
     let path = substitute(expand('%:p'), '.*lib/', '', 'g')
@@ -137,6 +143,7 @@ function! s:check_package_name()
         echohl None
     endif
 endfunction
+
 
 au! BufWritePost *.pm call s:check_package_name()
 
