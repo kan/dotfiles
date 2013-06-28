@@ -162,6 +162,8 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-perl/vim-perl'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
+Bundle 'airblade/vim-gitgutter'
 
 let g:user_zen_expandabbr_key = '<c-e>'
 
