@@ -32,6 +32,7 @@ co = checkout
 df = diff
 lg = log -p
 url = config --get remote.origin.url
+dn = diff --name-status
 
 [user]
 	name = Kan Fushihara
