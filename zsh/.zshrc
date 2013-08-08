@@ -10,6 +10,8 @@ SAVEHIST=1000
 setopt extended_history
 SHELL=/bin/zsh
 
+fpath=($HOME/project/dotfiles/zsh/completions/src $fpath)
+
 autoload -U compinit
 compinit
 
