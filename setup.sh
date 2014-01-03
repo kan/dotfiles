@@ -8,3 +8,5 @@ ln -s ~/project/dotfiles/git/gitignore ~/.gitignore
 ln -s ~/project/dotfiles/dir_colors ~/.dir_colors
 ln -s ~/project/dotfiles/tmux ~/.tmux.conf
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git submodule init
+git submodule update
