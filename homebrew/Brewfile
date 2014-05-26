@@ -1,0 +1,37 @@
+# update homebrew repos
+update
+
+# upgrade installed packages
+upgrade
+
+# add repos
+tap caskroom/cask || true
+tap homebrew/binary || true
+tap aereal/homebrew-aereal_casks || true
+
+# package for dev
+install git
+install lv
+install perl-build
+install plenv
+install the_silver_searcher
+install tmux
+install vim
+install zsh
+
+
+# package for cask
+install brew-cask
+
+cask install aquaskk
+cask install keyremap4macbook
+cask install google-chrome
+cask install dropbox
+cask install skype
+cask install hipchat
+cask install iterm2
+cask install yorufukurou
+cask install limechat
+
+# remove outdated versions
+cleanup
