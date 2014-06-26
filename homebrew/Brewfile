@@ -35,3 +35,5 @@ cask install limechat
 
 # remove outdated versions
 cleanup
+
+cask cleanup
