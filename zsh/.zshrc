@@ -112,15 +112,13 @@ function peco-src()
 {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
+        cd ${selected_dir}
     fi
-    zle clear-screen
 }
 zle -N peco-src
 
 bindkey '^r' peco-select-history
-bindkey '^x' peco-src
+bindkey '^k' peco-src
 alias pcd=peco-cd
 
 alias   lv='w3m'
