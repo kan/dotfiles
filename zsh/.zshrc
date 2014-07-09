@@ -71,6 +71,58 @@ chpwd()
   _update_prompt
 }
 
+# history of cd
+typeset -U chpwd_functions
+CD_HISTORY_FILE=${HOME}/.cd_history_file
+function chpwd_record_history() {
+    echo $PWD >> ${CD_HISTORY_FILE}
+}
+chpwd_functions=($chpwd_functions chpwd_record_history)
+
+# for peco
+function peco_get_destination_from_history() {
+    sort ${CD_HISTORY_FILE} | uniq -c | sort -r | \
+        sed -e 's/^[ ]*[0-9]*[ ]*//' | \
+        sed -e s"/^${HOME//\//\\/}/~/" | \
+        peco | xargs echo
+}
+
+function peco-select-history()
+{
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tac -r"
+    fi
+    BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+
+function peco-cd()
+{
+    local destination=$(peco_get_destination_from_history)
+    [ -n $destination ] && cd ${destination/#\~/${HOME}}
+}
+zle -N peco-cd
+
+function peco-src()
+{
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+
+bindkey '^r' peco-select-history
+bindkey '^x' peco-src
+alias pcd=peco-cd
+
 alias   lv='w3m'
 alias   less='w3m'
 export  EDITOR=vim

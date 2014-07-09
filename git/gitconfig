@@ -21,7 +21,7 @@ ui = auto
 whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 excludesfile = ~/.gitignore
 editor = vim
-pager = lv -c
+pager = diff-highlight | less
 [branch]
 autosetupmerge = true
 [alias]
@@ -33,7 +33,10 @@ df = diff
 lg = log -p
 url = config --get remote.origin.url
 dn = diff --name-status
+pbr = !git checkout $(git branch | peco)
 
 [user]
 	name = Kan Fushihara
 	email = kan.fushihara@gmail.com
+[ghq]
+	root = ~/src
