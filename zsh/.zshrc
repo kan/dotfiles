@@ -10,7 +10,7 @@ SAVEHIST=1000
 setopt extended_history
 SHELL=/bin/zsh
 
-fpath=($HOME/project/dotfiles/zsh/completions/src $fpath)
+fpath=($HOME/src/github.com/kan/dotfiles/zsh/completions/src $fpath)
 
 autoload -U compinit
 compinit
@@ -105,6 +105,7 @@ function peco-cd()
 {
     local destination=$(peco_get_destination_from_history)
     [ -n $destination ] && cd ${destination/#\~/${HOME}}
+    zle reset-prompt
 }
 zle -N peco-cd
 
@@ -112,12 +113,15 @@ function peco-src()
 {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
-        cd ${selected_dir}
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
     fi
+    zle clear-screen
 }
 zle -N peco-src
 
 bindkey '^r' peco-select-history
+bindkey '^x' peco-cd
 bindkey '^k' peco-src
 alias pcd=peco-cd
 
@@ -128,7 +132,7 @@ alias   vi=vim
 
 autoload bashcompinit
 bashcompinit
-source ~/project/dotfiles/zsh/git-comp.bash
+source $HOME/src/github.com/kan/dotfiles/zsh/git-comp.bash
 if [ -e ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
