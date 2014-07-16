@@ -33,7 +33,9 @@ df = diff
 lg = log -p
 url = config --get remote.origin.url
 dn = diff --name-status
-pbr = !git checkout $(git branch | peco)
+brc = !git checkout $(git branch | peco)
+brd = !git branch -d $(git branch | peco)
+com = checkout master
 
 [user]
 	name = Kan Fushihara
