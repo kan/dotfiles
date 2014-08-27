@@ -36,6 +36,7 @@ dn = diff --name-status
 brc = !git checkout $(git branch | peco)
 brd = !git branch -d $(git branch | peco)
 com = checkout master
+ste = !vim $(git status -s | cut -d' ' -f3 | peco)
 
 [user]
 	name = Kan Fushihara

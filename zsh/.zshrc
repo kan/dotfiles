@@ -120,9 +120,20 @@ function peco-src()
 }
 zle -N peco-src
 
+function peco-git-vim()
+{
+    local selected_file=$(git status -s | cut -d' ' -f3 | peco --query "$LBUFFER")
+    if [ -n "$selected_file" ]; then
+        BUFFER="vim ${selected_file}"
+    fi
+    zle clear-screen
+}
+zle -N peco-git-vim
+
 bindkey '^r' peco-select-history
 bindkey '^x' peco-cd
 bindkey '^k' peco-src
+bindkey '^i' peco-git-vim
 alias pcd=peco-cd
 
 alias   lv='w3m'
