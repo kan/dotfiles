@@ -133,7 +133,7 @@ zle -N peco-git-vim
 bindkey '^r' peco-select-history
 bindkey '^x' peco-cd
 bindkey '^k' peco-src
-bindkey '^i' peco-git-vim
+bindkey '^s' peco-git-vim
 alias pcd=peco-cd
 
 alias   lv='w3m'
