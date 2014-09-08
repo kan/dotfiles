@@ -43,3 +43,5 @@ ste = !vim $(git status -s | cut -d' ' -f3 | peco)
 	email = kan.fushihara@gmail.com
 [ghq]
 	root = ~/src
+[remote "origin"]
+	prune = true
