@@ -153,20 +153,22 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
 
-Bundle 'hotchpotch/perldoc-vim'
-Bundle 'c9s/perlomni.vim'
-Bundle 'thinca/vim-quickrun'
-Bundle 'mattn/emmet-vim'
-Bundle 'vim-perl/vim-perl'
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'bling/vim-airline'
-Bundle 'google/vim-ft-go'
-Bundle 'vim-jp/vim-go-extra'
+Plugin 'gmarik/vundle'
+
+Plugin 'hotchpotch/perldoc-vim'
+Plugin 'c9s/perlomni.vim'
+Plugin 'thinca/vim-quickrun'
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-perl/vim-perl'
+Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+Plugin 'bling/vim-airline'
+Plugin 'google/vim-ft-go'
+Plugin 'vim-jp/vim-go-extra'
+
+call vundle#end()
 
 let g:user_zen_expandabbr_key = '<c-e>'
 
