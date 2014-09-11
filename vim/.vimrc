@@ -149,6 +149,8 @@ au! BufWritePost *.pm call s:check_package_name()
 
 nmap <Leader>r <plug>(quickrun)
 
+au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
+
 set nocompatible
 filetype off
 
