@@ -23,7 +23,6 @@ install zsh
 # package for cask
 install brew-cask
 
-cask install aquaskk
 cask install keyremap4macbook
 cask install google-chrome
 cask install dropbox
