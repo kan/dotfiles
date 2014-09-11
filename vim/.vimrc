@@ -165,6 +165,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'bling/vim-airline'
+Bundle 'google/vim-ft-go'
+Bundle 'vim-jp/vim-go-extra'
 
 let g:user_zen_expandabbr_key = '<c-e>'
 
