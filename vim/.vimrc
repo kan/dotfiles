@@ -162,17 +162,21 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'thinca/vim-quickrun'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+
+Plug 'bling/vim-airline'
+
 Plug 'hotchpotch/perldoc-vim', { 'for': 'perl' }
 Plug 'vim-perl/vim-perl', { 'for': 'perl' }
-Plug 'rking/ag.vim'
-Plug 'bling/vim-airline'
+
 Plug 'google/vim-ft-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
 Plug 'kien/ctrlp.vim'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
-
 let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
