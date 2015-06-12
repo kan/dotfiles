@@ -152,25 +152,25 @@ nmap <Leader>r <plug>(quickrun)
 au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
 
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+" vim-plug automatic installation 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
-Plugin 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'hotchpotch/perldoc-vim'
-Plugin 'c9s/perlomni.vim'
-Plugin 'thinca/vim-quickrun'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-perl/vim-perl'
-Plugin 'rking/ag.vim'
-Plugin 'bling/vim-airline'
-Plugin 'google/vim-ft-go'
-Plugin 'vim-jp/vim-go-extra'
+Plug 'thinca/vim-quickrun'
+Plug 'hotchpotch/perldoc-vim', { 'for': 'perl' }
+Plug 'vim-perl/vim-perl', { 'for': 'perl' }
+Plug 'rking/ag.vim'
+Plug 'bling/vim-airline'
+Plug 'google/vim-ft-go', { 'for': 'go' }
+Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
-call vundle#end()
+call plug#end()
 
 let g:user_zen_expandabbr_key = '<c-e>'
 
-filetype plugin indent on
