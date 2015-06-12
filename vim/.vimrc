@@ -169,6 +169,10 @@ Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
 Plug 'google/vim-ft-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
+Plug 'kien/ctrlp.vim'
+Plug 'nixprime/cpsm', { 'do': './install.sh' }
+
+let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
 call plug#end()
 
