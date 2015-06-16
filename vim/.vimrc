@@ -24,7 +24,6 @@ set shiftwidth=4
 set showcmd
 set showmatch
 set smartcase
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set tabstop=4
 set wrapscan
 autocmd CursorHold * update
@@ -52,8 +51,6 @@ autocmd BufNewFile,BufRead *.sbt set filetype=scala
 
 au BufNewFile,BufRead *.html set shiftwidth=2 tabstop=2 softtabstop=2
 au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
-
-set nocompatible
 
 " vim-plug automatic installation 
 if empty(glob('~/.vim/autoload/plug.vim'))
