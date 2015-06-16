@@ -77,7 +77,7 @@ Plug 'vim-perl/vim-perl', { 'for': 'perl' }
 Plug 'google/vim-ft-go', { 'for': 'go' }
 Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
 let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
