@@ -50,11 +50,7 @@ autocmd BufNewFile,BufRead *.psgi   set filetype=perl
 autocmd BufNewFile,BufRead *.t      set filetype=perl
 autocmd BufNewFile,BufRead *.sbt set filetype=scala
 
-autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
-
-nmap <Leader>r <plug>(quickrun)
-
+au BufNewFile,BufRead *.html set shiftwidth=2 tabstop=2 softtabstop=2
 au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
 
 set nocompatible
