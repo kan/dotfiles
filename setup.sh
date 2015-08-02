@@ -7,6 +7,5 @@ ln -s ~/src/github.com/kan/dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/src/github.com/kan/dotfiles/git/gitignore ~/.gitignore
 ln -s ~/src/github.com/kan/dotfiles/dir_colors ~/.dir_colors
 ln -s ~/src/github.com/kan/dotfiles/tmux ~/.tmux.conf
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git submodule init
 git submodule update
