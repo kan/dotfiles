@@ -19,10 +19,13 @@ unbind C-t
 bind C-t last-window
 
 unbind |
-bind | split-window -h
+bind | split-window -h -c '#{pane_current_path}'
 
 unbind -
-bind - split-window -v
+bind - split-window -v -c '#{pane_current_path}'
+
+unbind c
+bind c new-window -c '#{pane_current_path}'
 
 set-option -g history-limit 10000
 set-option -g status-utf8 on
