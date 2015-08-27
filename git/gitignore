@@ -11,3 +11,4 @@
 *.sw[po]
 tags
 .proverc
+.perl-version

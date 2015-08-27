@@ -1,48 +1,58 @@
 [color]
-branch = auto
-diff = auto
-status = auto
+    branch = auto
+    diff = auto
+    status = auto
+
 [color "branch"]
-current = yellow reverse
-local = yellow
-remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
+
 [color "diff"]
-meta = yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
 [color "status"]
-added = yellow
-changed = green
-untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
+
 [color]
-ui = auto
+    ui = auto
+
 [core]
-whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-excludesfile = ~/.gitignore
-editor = vim
-pager = diff-highlight | less
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore
+    editor = vim
+    pager = diff-highlight | less
+
 [branch]
-autosetupmerge = true
+    autosetupmerge = true
+
 [alias]
-st = status
-ci = commit
-br = branch
-co = checkout
-df = diff
-lg = log -p
-url = config --get remote.origin.url
-dn = diff --name-status
-brc = !git checkout $(git branch | peco)
-brd = !git branch -d $(git branch | peco)
-com = checkout master
-pom = push origin master
-ste = !vim $(git status -s | cut -d' ' -f3 | peco)
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    url = config --get remote.origin.url
+    dn = diff --name-status
+    brc = !git checkout $(git branch | peco)
+    brd = !git branch -d $(git branch | peco)
+    com = checkout master
+    pom = push origin master
+    ste = !vim $(git status -s | cut -d' ' -f3 | peco)
+    fix = rebase -i HEAD~2
 
 [user]
 	name = Kan Fushihara
 	email = kan.fushihara@gmail.com
+
 [ghq]
 	root = ~/src
+
 [remote "origin"]
 	prune = true
