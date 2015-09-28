@@ -32,7 +32,7 @@ set-option -g status-utf8 on
 set-option -g status-interval 5
 
 set-option -g set-titles on
-set-option -g set-titles-string "@#(hostname | sed 's/\\\\..*//')"
+set-option -g set-titles-string '#W'
 
 set-option -g status-bg white
 set-option -g status-fg black
