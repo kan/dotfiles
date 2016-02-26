@@ -25,6 +25,7 @@ endif
 
 let g:colors_name = 'iceberg'
 
+set cursorline
 
 hi! ColorColumn cterm=NONE ctermbg=235 guibg=#1e2132
 hi! CursorColumn cterm=NONE ctermbg=235 guibg=#1e2132
