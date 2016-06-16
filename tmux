@@ -28,7 +28,6 @@ unbind c
 bind c new-window -c '#{pane_current_path}'
 
 set-option -g history-limit 10000
-set-option -g status-utf8 on
 set-option -g status-interval 5
 
 set-option -g set-titles on
