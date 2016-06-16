@@ -3,7 +3,7 @@
 set nocompatible " must be first!
 
 set t_Co=256
-colorscheme smyck
+colorscheme iceberg
 nnoremap j gj
 nnoremap k gk
 set expandtab
