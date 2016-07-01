@@ -30,7 +30,7 @@ autocmd CursorHold * update
 set updatetime=500
 set autochdir
 
-set fileencodings=utf-8,utf-16,euc-jp,iso-2022-jp,utf-8,cp932,utf-16
+set fileencodings=utf-8,utf-16,euc-jp,iso-2022-jp,cp932
 set fileformats=unix,dos,mac
 if exists('&ambiwidth')
   set ambiwidth=double
@@ -78,8 +78,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
 let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-autocmd! User YouCompleteMe call youcompleteme#Enable()
+Plug 'scrooloose/nerdtree'
+
+Plug 'clones/vim-l9'
+Plug 'othree/vim-autocomplpop'
 
 call plug#end()
 
