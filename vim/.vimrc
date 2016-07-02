@@ -48,6 +48,7 @@ set nocompatible " must be first!
     set ambw=double
     set modeline
     set modelines=5
+    set showtabline=2
 
     let g:miniBufExplMapWindowNavVim = 1
     let g:miniBufExplMapWindowNavArrows = 1
@@ -151,4 +152,23 @@ set nocompatible " must be first!
 
     let g:ctrlp_extensions = ['tab', 'quickfix', 'dir', 'line', 'mixed']
     let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+
+" -------------------------------------------------------------------
+"  tab setting
+" -------------------------------------------------------------------
+
+    nnoremap [Tab] <Nop>
+    nmap t [Tab]
+
+    for n in range(1, 9)
+        execute 'nnoremap <silent> [Tab]'.n n.'gt'
+    endfor
+
+    nnoremap [Tab]j :tabnext<CR>
+    nnoremap [Tab]k :tabprev<CR>
+    nnoremap [Tab]e :tabedit<Space>
+    nnoremap [Tab]x :tabclose<CR>
+
+    autocmd VimEnter * tab all
+    autocmd BufAdd * execute 'tablast | tabedit "'.expand('<afile').'"'
 
