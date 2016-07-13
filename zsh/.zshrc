@@ -136,6 +136,15 @@ bindkey '^k' peco-src
 bindkey '^s' peco-git-vim
 alias pcd=peco-cd
 
+function agp()
+{
+    if $2; then
+        vim $(ag -l $1 $2 | peco)
+    else
+        vim $(ag -l $1 . | peco)
+    fi
+}
+
 alias   lv='w3m'
 alias   less='w3m'
 export  EDITOR=vim
