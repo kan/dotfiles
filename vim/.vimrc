@@ -69,7 +69,8 @@ set nocompatible " must be first!
 
     call plug#begin('~/.vim/plugged')
 
-    Plug 'bling/vim-airline'
+    Plug 'tpope/vim-fugitive'
+    Plug 'itchyny/lightline.vim'
 
     Plug 'hotchpotch/perldoc-vim', { 'for': 'perl' }
     Plug 'vim-perl/vim-perl', { 'for': 'perl' }
@@ -85,6 +86,8 @@ set nocompatible " must be first!
     Plug 'othree/vim-autocomplpop'
 
     Plug 'mkitt/tabline.vim'
+
+    Plug 'bronson/vim-trailing-whitespace'
 
     call plug#end()
     filetype plugin indent on
@@ -171,4 +174,26 @@ set nocompatible " must be first!
 
     autocmd VimEnter * tab all
     autocmd BufAdd * execute 'tablast | tabedit "'.expand('<afile').'"'
+
+" -------------------------------------------------------------------
+"  lightline setting
+" -------------------------------------------------------------------
+    let g:lightline = {
+            \ 'colorscheme': 'seoul256',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'fugitive', 'readonly', 'filename', 'modified'] ]
+            \ },
+            \ 'component': {
+            \   'readonly': '%{&filetype=="help"?"":&readonly?"×":""}',
+            \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+            \ },
+            \ 'component_visible_condition': {
+			\   'readonly': '(&filetype!="help"&& &readonly)',
+			\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+			\   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+			\ },
+            \ 'subseparator': { 'left': '＞', 'right': '＜' }
+			\ }
 
