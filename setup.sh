@@ -6,6 +6,8 @@ GHQ_ROOT=~/src ghq get git@github.com:kan/dotfiles.git
 
 ln -s ~/src/github.com/kan/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/src/github.com/kan/dotfiles/zsh/.zshenv ~/.zshenv
+mkdir -p ~/.zsh
+ln -s ~/src/github.com/kan/dotfiles/zsh/prompt ~/.zsh/prompt
 ln -s ~/src/github.com/kan/dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/src/github.com/kan/dotfiles/vim/.vim ~/.vim
 ln -s ~/src/github.com/kan/dotfiles/git/gitconfig ~/.gitconfig
