@@ -10,7 +10,7 @@ SAVEHIST=1000
 setopt extended_history
 SHELL=/bin/zsh
 
-fpath=($HOME/src/github.com/kan/dotfiles/zsh/completions/src $fpath)
+fpath=($HOME/src/github.com/kan/dotfiles/zsh/completions/src /Users/kan/src/github.com/kan/dotfiles/zsh/m-cli/completion/zsh $fpath)
 
 autoload -Uz compinit
 compinit -C

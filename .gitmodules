@@ -1,3 +1,6 @@
 [submodule "zsh/completions"]
 	path = zsh/completions
 	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/m-cli"]
+	path = zsh/m-cli
+	url = git@github.com:rgcr/m-cli.git
