@@ -38,7 +38,7 @@ set-option -g status-fg black
 set-option -g status-attr dim
 # prompt left
 set-option -g status-left-length 100
-set -g status-left '#[fg=colour26,bold][#20(whoami)@#H](#S)#[default]'
+set -g status-left '#[fg=colour26,bold][#(whoami)@#H](#S)#[default]'
 # prompt right
 set-option -g status-right-length 50
 set -g status-right '#[fg=colour26,bold]%Y/%m/%d(%a) %H:%M:%S#[default]'
