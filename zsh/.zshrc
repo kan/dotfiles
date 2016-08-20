@@ -140,7 +140,7 @@ alias   vi=vim
 autoload bashcompinit
 bashcompinit
 source $HOME/src/github.com/kan/dotfiles/zsh/git-comp.bash
-source /Users/kan/src/github.com/kan/dotfiles/zsh/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
+source $HOME/src/github.com/kan/dotfiles/zsh/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 if [ -e ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
