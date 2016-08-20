@@ -78,6 +78,8 @@ set nocompatible " must be first!
     Plug 'google/vim-ft-go', { 'for': 'go' }
     Plug 'vim-jp/vim-go-extra', { 'for': 'go' }
 
+    Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+
     Plug 'ctrlpvim/ctrlp.vim'
 
     Plug 'scrooloose/nerdtree'
