@@ -10,7 +10,7 @@ SAVEHIST=1000
 setopt extended_history
 SHELL=/bin/zsh
 
-fpath=($HOME/src/github.com/kan/dotfiles/zsh/completions/src /Users/kan/src/github.com/kan/dotfiles/zsh/m-cli/completion/zsh $fpath)
+fpath=(/Users/kan/src/github.com/kan/dotfiles/zsh/m-cli/completion/zsh $fpath)
 
 autoload -Uz compinit
 compinit -C
@@ -139,8 +139,28 @@ alias   vi=vim
 
 autoload bashcompinit
 bashcompinit
-source $HOME/src/github.com/kan/dotfiles/zsh/git-comp.bash
-source $HOME/src/github.com/kan/dotfiles/zsh/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
+
 if [ -e ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+source $HOME/src/github.com/kan/dotfiles/zsh/git-comp.bash
+
+source $HOME/src/github.com/kan/dotfiles/zsh/zplug/init.zsh
+
+if ! zplug check; then
+    zplug install
+fi
+
+zplug "zplug/zplug"
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-autosuggestions"
+
+if zplug check b4b4r07/enhancd; then
+    export ENHANCD_FILTER=peco
+fi
+
+zplug load
+
