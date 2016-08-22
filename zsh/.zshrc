@@ -42,95 +42,8 @@ if [ -e '/usr/local/bin/gls' ]; then
     alias ls='\gls --color'
 fi
 
-fpath=($fpath "$HOME/.zsh/prompt")
-autoload -Uz promptinit
-promptinit
-prompt "${ZSH_THEME:-"kan"}"
-
-setopt prompt_subst
 autoload -Uz colors
 colors
-
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' max-exports 2
-zstyle ':vcs_info:*' enable git hg
-
-zstyle ':vcs_info:*' formats "%F{blue}%s:(%F{yellow}%b%F{blue})"
-
-# history of cd
-typeset -U chpwd_functions
-CD_HISTORY_FILE=${HOME}/.cd_history_file
-function chpwd_record_history() {
-    echo $PWD >> ${CD_HISTORY_FILE}
-}
-chpwd_functions=($chpwd_functions chpwd_record_history)
-
-# for peco
-function peco_get_destination_from_history() {
-    sort ${CD_HISTORY_FILE} | uniq -c | sort -r | \
-        sed -e 's/^[ ]*[0-9]*[ ]*//' | \
-        sed -e s"/^${HOME//\//\\/}/~/" | \
-        peco | xargs echo
-}
-
-function peco-select-history()
-{
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tac -r"
-    fi
-    BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-
-function peco-cd()
-{
-    local destination=$(peco_get_destination_from_history)
-    [ -n $destination ] && cd ${destination/#\~/${HOME}}
-    zle reset-prompt
-}
-zle -N peco-cd
-
-function peco-src()
-{
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-src
-
-function peco-git-vim()
-{
-    local selected_file=$(git status -s | cut -d' ' -f3 | peco --query "$LBUFFER")
-    if [ -n "$selected_file" ]; then
-        BUFFER="vim ${selected_file}"
-    fi
-    zle clear-screen
-}
-zle -N peco-git-vim
-
-bindkey '^r' peco-select-history
-bindkey '^x' peco-cd
-bindkey '^k' peco-src
-bindkey '^s' peco-git-vim
-alias pcd=peco-cd
-
-function agp()
-{
-    if $2; then
-        vim $(ag -l $1 $2 | peco)
-    else
-        vim $(ag -l $1 . | peco)
-    fi
-}
 
 alias   lv='w3m'
 alias   less='w3m'
@@ -148,19 +61,32 @@ source $HOME/src/github.com/kan/dotfiles/zsh/git-comp.bash
 
 source $HOME/src/github.com/kan/dotfiles/zsh/zplug/init.zsh
 
-if ! zplug check; then
-    zplug install
-fi
-
 zplug "zplug/zplug"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "zsh-users/zsh-autosuggestions"
+zplug "mollifier/anyframe"
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
+
+zplug check || zplug install
 
 if zplug check b4b4r07/enhancd; then
     export ENHANCD_FILTER=peco
 fi
 
 zplug load
+
+function anyframe-widget-ghq () {
+    ghq list \
+        | anyframe-selector-auto \
+        | anyframe-action-execute ghq look
+}
+zle -N anyframe-widget-ghq
+
+bindkey '^w' anyframe-widget-select-widget
+bindkey '^r' anyframe-widget-put-history
+bindkey '^k' anyframe-widget-ghq
+bindkey '^x' anyframe-widget-kill
 
