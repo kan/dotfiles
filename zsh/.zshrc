@@ -67,8 +67,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+zplug "kan/tiny"
 
 zplug check || zplug install
 
