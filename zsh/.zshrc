@@ -77,10 +77,14 @@ fi
 
 zplug load
 
+function ghq_quick_look () {
+    cd $(ghq root)/$1
+}
+
 function anyframe-widget-ghq () {
     ghq list \
         | anyframe-selector-auto \
-        | anyframe-action-execute ghq look
+        | anyframe-action-execute ghq_quick_look
 }
 zle -N anyframe-widget-ghq
 
