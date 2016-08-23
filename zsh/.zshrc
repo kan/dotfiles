@@ -68,6 +68,7 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
 zplug "kan/tiny"
+zplug "joel-porquet/zsh-dircolors-solarized"
 
 zplug check || zplug install
 
@@ -76,6 +77,10 @@ if zplug check b4b4r07/enhancd; then
 fi
 
 zplug load
+
+if zplug check joel-porquet/zsh-dircolors-solarized; then
+    setupsolarized dircolors.256dark
+fi
 
 function ghq_quick_look () {
     cd $(ghq root)/$1
