@@ -91,6 +91,8 @@ set nocompatible " must be first!
 
     Plug 'bronson/vim-trailing-whitespace'
 
+    Plug 'elixir-lang/vim-elixir'
+
     call plug#end()
     filetype plugin indent on
 
