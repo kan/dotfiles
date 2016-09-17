@@ -70,7 +70,9 @@ set nocompatible " must be first!
     call plug#begin('~/.vim/plugged')
 
     Plug 'tpope/vim-fugitive'
+
     Plug 'itchyny/lightline.vim'
+    Plug 'popkirby/lightline-iceberg'
 
     Plug 'hotchpotch/perldoc-vim', { 'for': 'perl' }
     Plug 'vim-perl/vim-perl', { 'for': 'perl' }
@@ -183,7 +185,7 @@ set nocompatible " must be first!
 "  lightline setting
 " -------------------------------------------------------------------
     let g:lightline = {
-            \ 'colorscheme': 'seoul256',
+            \ 'colorscheme': 'iceberg',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'readonly', 'filename', 'modified'] ]
