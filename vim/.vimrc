@@ -69,10 +69,11 @@ set nocompatible " must be first!
 
     call plug#begin('~/.vim/plugged')
 
+    Plug 'kan/iceberg.vim'
+
     Plug 'tpope/vim-fugitive'
 
     Plug 'itchyny/lightline.vim'
-    Plug 'popkirby/lightline-iceberg'
 
     Plug 'hotchpotch/perldoc-vim', { 'for': 'perl' }
     Plug 'vim-perl/vim-perl', { 'for': 'perl' }
@@ -103,7 +104,6 @@ set nocompatible " must be first!
 " -------------------------------------------------------------------
 
     set t_Co=256
-    set background=dark
 
     colorscheme iceberg
 
