@@ -3,8 +3,6 @@
 "
 " *******************************************************************
 
-set nocompatible " must be first!
-
 " -------------------------------------------------------------------
 "  :PlugInstall  Install plugins
 "  :PlugUpdate   Update plugins
