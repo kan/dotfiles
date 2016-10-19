@@ -83,8 +83,6 @@
 
     Plug 'ctrlpvim/ctrlp.vim'
 
-    Plug 'scrooloose/nerdtree'
-
     Plug 'clones/vim-l9'
     Plug 'othree/vim-autocomplpop'
 
