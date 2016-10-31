@@ -92,6 +92,8 @@
 
     Plug 'elixir-lang/vim-elixir'
 
+    Plug 'cohama/lexima.vim'
+
     call plug#end()
     filetype plugin indent on
 
