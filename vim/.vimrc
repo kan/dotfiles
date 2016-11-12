@@ -201,3 +201,10 @@
             \ 'subseparator': { 'left': '＞', 'right': '＜' }
 			\ }
 
+" -------------------------------------------------------------------
+"  fix lexima CR mapping
+" -------------------------------------------------------------------
+
+    call lexima#init()
+    inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<LT>CR>', 'i')
+
