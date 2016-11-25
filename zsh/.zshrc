@@ -69,6 +69,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "mollifier/anyframe"
 zplug "kan/tiny"
 zplug "joel-porquet/zsh-dircolors-solarized"
+zplug "momo-lab/zsh-abbrev-alias"
 
 zplug check || zplug install
 
