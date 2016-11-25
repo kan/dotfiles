@@ -94,6 +94,8 @@
 
     Plug 'cohama/lexima.vim'
 
+    Plug 'sheerun/vim-polyglot'
+
     call plug#end()
     filetype plugin indent on
 
