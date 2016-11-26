@@ -96,6 +96,8 @@
 
     Plug 'sheerun/vim-polyglot'
 
+    Plug 'lilydjwg/colorizer'
+
     call plug#end()
     filetype plugin indent on
 
