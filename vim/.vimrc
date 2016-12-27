@@ -107,7 +107,7 @@
 
     set t_Co=256
 
-    colorscheme iceberg
+    silent! colorscheme iceberg
 
 " -------------------------------------------------------------------
 "  perl
@@ -209,6 +209,6 @@
 "  fix lexima CR mapping
 " -------------------------------------------------------------------
 
-    call lexima#init()
+    silent! call lexima#init()
     inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<LT>CR>', 'i')
 
